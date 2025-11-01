@@ -62,17 +62,19 @@ namespace Jellyfin.Plugin.JellyfinDuplicateFinder.Controller
         [HttpGet("delete-duplicates")]
         public async Task<IActionResult> TriggerDeleteDuplicateMovies([FromQuery] string? test = "true")
         {
-            bool isTestMode = !string.Equals(test, "false", StringComparison.OrdinalIgnoreCase);
-
+            var isTestMode = !string.Equals(test, "false", StringComparison.OrdinalIgnoreCase);
             var result = await DeleteDuplicateMoviesAsync(isTestMode).ConfigureAwait(false);
 
-            try
+            if (!isTestMode)
             {
-                _libraryManager.QueueLibraryScan();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogDebug(ex, "QueueLibraryScan not available or failed.");
+                try
+                {
+                    _libraryManager.QueueLibraryScan();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogDebug(ex, "QueueLibraryScan not available or failed.");
+                }
             }
 
             return new ContentResult
