@@ -10,5 +10,7 @@ Sometimes the IMDB is missing or missinterpreted for some movies by the Jellyfin
 
 URLs
 http://localhost:8096/web/index.html#/configurationpage?name=JellyfinDuplicateFinder
+
 http://localhost:8096/plugins/JellyfinDuplicateFinder/delete-duplicates?test=true
+
 http://localhost:8096/plugins/JellyfinDuplicateFinder/delete-duplicates
