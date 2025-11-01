@@ -1,7 +1,6 @@
-﻿
 using MediaBrowser.Model.Plugins;
 
-namespace Jellyfin.Plugin.Template.Configuration;
+namespace Jellyfin.Plugin.JellyfinDuplicateFinder.Configuration;
 
 /// <summary>
 /// The configuration options.
@@ -22,12 +21,12 @@ public enum SomeOptions
 /// <summary>
 /// Plugin configuration.
 /// </summary>
-public class PluginConfiguration : BasePluginConfiguration
+public class JellyfinDuplicateFinderConfiguration : BasePluginConfiguration
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="PluginConfiguration"/> class.
+    /// Initializes a new instance of the <see cref="JellyfinDuplicateFinderConfiguration"/> class.
     /// </summary>
-    public PluginConfiguration()
+    public JellyfinDuplicateFinderConfiguration()
     {
         // set default options here
         Options = SomeOptions.AnotherOption;

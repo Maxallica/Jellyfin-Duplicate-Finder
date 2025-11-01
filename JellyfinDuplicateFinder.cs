@@ -20,7 +20,7 @@ namespace Jellyfin.Plugin.Template
     using Emby.Server.Implementations.Library;
     using Microsoft.AspNetCore.Mvc;
 
-    [Route("api/plugins")]
+    [Route("/Plugins/DuplicateFinder")]
     [ApiController]
     public class PluginController : ControllerBase
     {
@@ -60,10 +60,10 @@ namespace Jellyfin.Plugin.Template
             string ret = "";
             try
             {
-                var movies = _libraryManager.GetItemsResult(new InternalItemsQuery
-                {
-                    IncludeItemTypes = new[] { BaseItemKind.Movie }
-                }).Items;
+                var movies = _libraryManager.GetItemList(new InternalItemsQuery
+				{
+					IncludeItemTypes = new[] { BaseItemKind.Movie }
+				});
 
                 var groupedMovies = movies
                     .Where(m => m.ProviderIds.ContainsKey("Imdb"))
