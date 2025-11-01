@@ -8,7 +8,7 @@ After deletion of the movie plugin will delete the same folder if the size of it
 
 Sometimes the IMDB is missing or missinterpreted for some movies by the Jellyfin scraper. This might cause you loosing some files that were wrongly recognized under a same invalid IMDB id.
 
-URLs
+**URLs**
 http://localhost:8096/web/index.html#/configurationpage?name=JellyfinDuplicateFinder
 
 http://localhost:8096/plugins/JellyfinDuplicateFinder/delete-duplicates?test=true
